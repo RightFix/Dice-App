@@ -1,0 +1,59 @@
+ScreenManager:
+    Screen1
+    Screen2
+<Screen1>:
+    name: "single_dice"
+    MDBoxLayout:
+        orientation:"vertical"
+        padding: 20
+        spacing: 20 
+    
+        MDRaisedButton:    
+            text:"Double Dice"
+            size_hint_y:.1
+            on_release:
+                app.root.current = "double_dice"
+                
+        MDLabel:
+            id : single
+            text: "Dice One"
+            font_size: 30
+            halign: "center"
+            size_hint_y : 0.7
+            
+        MDRaisedButton:    
+            text:"Roll"
+            pos_hint: {"center_x": 0.5, "center_y":.5}
+            size_hint: .5,.2
+            on_release:
+                single.text= f"Dice one \n \n {app.ran(1,6)}"
+                
+<Screen2>:
+    name: "double_dice"
+    MDBoxLayout:
+        orientation:"vertical"
+        padding: 20
+        spacing: 20
+            
+        MDRaisedButton:
+            text:"Single Dice"
+            size_hint_y: .1
+            on_release:
+                app.root.current = "single_dice"
+  
+        MDLabel:
+            id: double
+            text:"Double Dice"
+            font_size: 30
+            halign: "center"
+            size_hint_y: 0.7
+            
+        MDRaisedButton:
+            text: "Roll"
+            pos_hint: {"center_x": 0.5, "center_y":.5}
+            size_hint: 0.5, 0.2
+            on_release:
+                double.text  = f"Double Dice \n\n {app.ran(1,6)}  &  {app.ran(1,6)} "
+                
+                
+    
