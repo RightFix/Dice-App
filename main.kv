@@ -1,59 +1,59 @@
+#:import RoundedButton main.RoundedButton
+
 ScreenManager:
     Screen1
     Screen2
+
 <Screen1>:
     name: "single_dice"
-    MDBoxLayout:
-        orientation:"vertical"
+    BoxLayout:
+        orientation: "vertical"
         padding: 20
-        spacing: 20 
-    
-        MDRaisedButton:    
-            text:"Double Dice"
-            size_hint_y:.1
+        spacing: 20
+
+        RoundedButton:
+            text: "Double Dice"
+            size_hint_y: .1
             on_release:
                 app.root.current = "double_dice"
-                
-        MDLabel:
-            id : single
+
+        Label:
+            id: single
             text: "Dice One"
             font_size: 30
             halign: "center"
-            size_hint_y : 0.7
-            
-        MDRaisedButton:    
-            text:"Roll"
-            pos_hint: {"center_x": 0.5, "center_y":.5}
-            size_hint: .5,.2
+            size_hint_y: 0.7
+
+        RoundedButton:
+            text: "Roll"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: 0.5, 0.2
             on_release:
-                single.text= f"Dice one \n \n {app.ran(1,6)}"
-                
+                single.text = f"Dice one \n \n {app.ran(1,6)}"
+
 <Screen2>:
     name: "double_dice"
-    MDBoxLayout:
-        orientation:"vertical"
+    BoxLayout:
+        orientation: "vertical"
         padding: 20
         spacing: 20
-            
-        MDRaisedButton:
-            text:"Single Dice"
-            size_hint_y: .1
+
+        RoundedButton:
+            text: "Single Dice"
+            size_hint_y: 0.1
             on_release:
                 app.root.current = "single_dice"
-  
-        MDLabel:
+
+        Label:
             id: double
-            text:"Double Dice"
+            text: "Double Dice"
             font_size: 30
             halign: "center"
             size_hint_y: 0.7
-            
-        MDRaisedButton:
+
+        RoundedButton:
             text: "Roll"
-            pos_hint: {"center_x": 0.5, "center_y":.5}
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
             size_hint: 0.5, 0.2
             on_release:
-                double.text  = f"Double Dice \n\n {app.ran(1,6)}  &  {app.ran(1,6)} "
-                
-                
-    
+                double.text = f"Double Dice \n\n {app.ran(1,6)}  &  {app.ran(1,6)}"
